@@ -2,7 +2,7 @@ package kr.ac.jejnu.user;
 
 import java.sql.*;
 
-public class UserDao {
+public abstract class UserDao {
 
     public User get(Long id) throws ClassNotFoundException, SQLException {
         Connection connection = getConnection();
@@ -43,10 +43,12 @@ public class UserDao {
         resultSet.close();
     }
 
-    public Connection getConnection() throws ClassNotFoundException, SQLException {
-        Class.forName("com.mysql.cj.jdbc.Driver");
+//    public Connection getConnection() throws ClassNotFoundException, SQLException {
+//        Class.forName("com.mysql.cj.jdbc.Driver");
+//
+//        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/jeju", "root", "Rlaalswo2312!");
+//        return connection;
+//    }
 
-        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/jeju", "root", "Rlaalswo2312!");
-        return connection;
-    }
+    abstract public Connection getConnection() throws ClassNotFoundException, SQLException;
 }
